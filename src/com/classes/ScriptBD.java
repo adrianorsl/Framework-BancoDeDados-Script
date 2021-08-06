@@ -78,7 +78,7 @@ public class ScriptBD {
 
 	// autoIngrement e notNull 1 true 0 false;
 	public String CriarScript() {
-		String script = "'" + getNome() + "'" + " " + getTipo() +"(" + getQuantidade() + ")";
+		String script = getNome() + " " + getTipo() +"(" + getQuantidade() + ")";
 		if (getNotNull() == 1) {
 			 script = script + " NOT NULL";
 		}else {
@@ -89,7 +89,7 @@ public class ScriptBD {
 		}else {
 			
 		}
-		return script + "," + "\n";			
+		return script;			
 	}
 
 

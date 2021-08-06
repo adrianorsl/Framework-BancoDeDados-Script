@@ -41,17 +41,23 @@ public class Tabela {
 	public String script() {
 		String st = "";
 		for (int x = 0; x < lista.size(); x ++) {
-			ScriptBD scpt = new ScriptBD();
-			scpt = lista.get(x);
-			st += scpt.CriarScript();	
+			if (x == lista.size() - 1) {
+				ScriptBD scpt = new ScriptBD();
+				scpt = lista.get(x);
+				st += scpt.CriarScript() + "\n";
+			}else {
+				ScriptBD scpt = new ScriptBD();
+				scpt = lista.get(x);
+				st += scpt.CriarScript() + "," + "\n";
+			}
 		}
 		return st;
 	}
 	
 	public String criarTabela() {
-		String tabela = "CREATE TABLE "+ "'" + getNomeTabela() + "'"+ "(" + "\n";
+		String tabela = "CREATE TABLE "+  getNomeTabela() + "(" + "\n";
 		tabela += script();
-		return tabela + ")";
+		return tabela + ");";
 		
 		
 	}

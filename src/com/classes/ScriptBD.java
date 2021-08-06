@@ -10,6 +10,18 @@ public class ScriptBD {
 	private int autoIngrement;
 	private int notNull;
 
+	public ScriptBD() {
+		
+	}
+
+	public ScriptBD(String nome, Tipos tipo, int quantidade, int autoIngrement, int notNull) {
+		this.nome = nome;
+		this.tipo = tipo;
+		this.quantidade = quantidade;
+		this.autoIngrement = autoIngrement;
+		this.notNull = notNull;
+	}
+
 
 	public String getNome() {
 		return nome;
@@ -65,20 +77,21 @@ public class ScriptBD {
 	}
 
 	// autoIngrement e notNull 1 true 0 false;
-	public String CriarScript(String nome, Tipos tipo,int quantidade, int autoIngrement, int notNull) {
-		String script = "'" + nome + "'" + " " + tipo +"(" + quantidade + ")";
-		if (notNull == 1) {
+	public String CriarScript() {
+		String script = "'" + getNome() + "'" + " " + getTipo() +"(" + getQuantidade() + ")";
+		if (getNotNull() == 1) {
 			 script = script + " NOT NULL";
 		}else {
 
 		}
-		if (autoIngrement == 1) {
+		if (getAutoIngrement() == 1) {
 			script = script + " AUTO_INCREMENT";
 		}else {
 			
 		}
-		return script + ",";			
+		return script + "," + "\n";			
 	}
+
 
 
 	@Override

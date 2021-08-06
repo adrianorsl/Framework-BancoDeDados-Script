@@ -1,0 +1,5 @@
+package Enum;
+
+public enum Tipos {
+	INT, FLOAT, DECIMAL, CHAR, BOOLEAN, VARCHAR, BLOB, MEDIUMTEXT, LONGTEXT, DATE, DATETIME, TIME; 
+}

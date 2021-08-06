@@ -6,6 +6,7 @@ public class ScriptBD {
 
 	private String nome;
 	private Tipos tipo;
+	private int quantidade;
 	private int autoIngrement;
 	private int notNull;
 
@@ -30,6 +31,17 @@ public class ScriptBD {
 			this.tipo = i;
 	}
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+
+	public void setQuantidade(int quantidade) {
+		if (quantidade > 0) {
+			this.quantidade = quantidade;
+		}
+		
+	}
 
 	public int getAutoIngrement() {
 		return autoIngrement;
@@ -53,8 +65,8 @@ public class ScriptBD {
 	}
 
 	// autoIngrement e notNull 1 true 0 false;
-	public String CriarScript(String nome, Tipos tipo, int autoIngrement, int notNull) {
-		String script = "'" + nome + "'" + " " + tipo;
+	public String CriarScript(String nome, Tipos tipo,int quantidade, int autoIngrement, int notNull) {
+		String script = "'" + nome + "'" + " " + tipo +"(" + quantidade + ")";
 		if (notNull == 1) {
 			 script = script + " NOT NULL";
 		}else {
@@ -72,11 +84,14 @@ public class ScriptBD {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ScriptDB [nome=");
+		builder.append("ScriptBD [nome=");
 		builder.append(nome);
 		builder.append(", tipo=");
 		builder.append(tipo);
+		builder.append(", quantidade=");
+		builder.append(quantidade);
 		builder.append("]");
 		return builder.toString();
 	}
+
 }

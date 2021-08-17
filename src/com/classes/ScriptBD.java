@@ -8,6 +8,7 @@ public class ScriptBD {
 	private Tipos tipo;
 	private int quantidade;
 	private int autoIngrement;
+	private int primaryKey;
 	private int notNull;
 
 	
@@ -16,11 +17,12 @@ public class ScriptBD {
 		
 	}
 
-	public ScriptBD(String nome, Tipos tipo, int quantidade, int autoIngrement, int notNull) {
+	public ScriptBD(String nome, Tipos tipo, int quantidade, int autoIngrement,int primaryKey, int notNull) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.quantidade = quantidade;
 		this.autoIngrement = autoIngrement;
+		this.primaryKey = primaryKey;
 		this.notNull = notNull;
 	}
 
@@ -40,6 +42,7 @@ public class ScriptBD {
 	}
 
 
+	
 	public void setTipo(Tipos i) {
 		
 			this.tipo = i;
@@ -66,7 +69,15 @@ public class ScriptBD {
 		if ((autoIngrement == 1) || (autoIngrement == 0))
 			this.autoIngrement = autoIngrement;
 	}
+	
+	public int getPrimaryKey() {
+		return primaryKey;
+	}
 
+	public void setPrimaryKey(int primaryKey) {
+		if ((primaryKey == 1) || (primaryKey == 0))
+		this.primaryKey = primaryKey;
+	}
 
 	public int getNotNull() {
 		return notNull;
@@ -87,7 +98,10 @@ public class ScriptBD {
 
 		}
 		if (getAutoIngrement() == 1) {
-			script = script + " AUTO_INCREMENT PRIMARY KEY";
+			script = script + " AUTO_INCREMENT";
+			if (getPrimaryKey() == 1) {
+				script = script + " PRIMARY KEY";
+			}
 		}else {
 			
 		}

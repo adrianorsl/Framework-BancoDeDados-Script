@@ -1,17 +1,25 @@
 
 import java.sql.Connection;
 
+import com.classes.AbstratTabela;
+import com.classes.Aluno;
 import com.classes.ConectarBD;
+import com.classes.ListAbstratTabela;
 import com.classes.ScriptBD;
 import com.classes.Tabela;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 import Enum.Tipos;
+import JsonCsv.Csv;
+import JsonCsv.Json;
+import JsonCsv.PersistenciaAbstratTabela;
 
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		
 		ScriptBD scpt = new ScriptBD("codigo", Tipos.INT, 100, true, true, false, true);
@@ -26,7 +34,7 @@ public class main {
 		tab.addScript(scpt3);
 		tab.addScript(scpt4);
 		
-		System.out.println(tab.criarTabela());
+		
 		
 		Tabela tab2 = new Tabela("teste2");
 		
@@ -43,10 +51,45 @@ public class main {
 		tab2.addScript(scpt9);
 		
 		
-		System.out.println(tab2.criarTabelaForeignKey(scpt5.getNome(), tab.getNomeTabela(), scpt.getNome()));
 		
+		
+		AbstratTabela abstrat = new AbstratTabela();
+		AbstratTabela abstrat2 = new AbstratTabela();
+		
+		
+		ListAbstratTabela lista = new ListAbstratTabela();
 	
+		abstrat.setTabela(tab.criarTabela());
+		lista.add(abstrat);
 		
+		
+		abstrat2.setTabela(tab2.criarTabelaForeignKey(scpt5.getNome(), tab.getNomeTabela(), scpt.getNome()));
+		lista.add(abstrat2);
+		
+		Json a = new Json();
+		a.setNome("Teste.json");
+		PersistenciaAbstratTabela persist = new PersistenciaAbstratTabela(a);
+		persist.gravar(lista.getLista());
+		
+		
+		List<AbstratTabela> list2 = a.ler(lista.getLista());
+		
+		for (Iterator iter = list2.iterator(); iter.hasNext();) {
+			AbstratTabela element = (AbstratTabela) iter.next();
+			System.out.println(element.toString() + "\n---");	
+		}
+	
+		Csv b = new Csv();
+		b.setNome("teste.csv");
+		PersistenciaAbstratTabela persist2 = new PersistenciaAbstratTabela(b);
+		persist2.gravar(lista.getLista());
+		
+		List<AbstratTabela> list3 = b.ler(lista.getLista());
+		
+		for (Iterator iter = list3.iterator(); iter.hasNext();) {
+			AbstratTabela element = (AbstratTabela) iter.next();
+			System.out.println(element.toString() + "\n---");	
+		}
 		
 		
 		ConectarBD conexao = new ConectarBD();
@@ -64,7 +107,7 @@ public class main {
 			conn = conexao.conectar();
 			
 			//st = conn.prepareStatement(tab.criarTabela());
-			st = conn.prepareStatement(tab2.criarTabelaForeignKey(scpt6.getNome(), tab.getNomeTabela(), scpt2.getNome()));
+			//st = conn.prepareStatement(tab2.criarTabelaForeignKey(scpt6.getNome(), tab.getNomeTabela(), scpt2.getNome()));
 			
 			int rowsAffected = st.executeUpdate();
 			

@@ -7,9 +7,10 @@ public class ScriptBD {
 	private String nome;
 	private Tipos tipo;
 	private int quantidade;
-	private int autoIngrement;
-	private int primaryKey;
-	private int notNull;
+	private boolean autoIngrement;
+	private boolean primaryKey;
+	private boolean notNull;
+	
 
 	
 	
@@ -17,7 +18,7 @@ public class ScriptBD {
 		
 	}
 
-	public ScriptBD(String nome, Tipos tipo, int quantidade, int autoIngrement,int primaryKey, int notNull) {
+	public ScriptBD(String nome, Tipos tipo, int quantidade, boolean autoIngrement,boolean primaryKey, boolean notNull) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.quantidade = quantidade;
@@ -60,46 +61,46 @@ public class ScriptBD {
 		
 	}
 
-	public int getAutoIngrement() {
+	public boolean getAutoIngrement() {
 		return autoIngrement;
 	}
 
 
-	public void setAutoIngrement(int autoIngrement) {
-		if ((autoIngrement == 1) || (autoIngrement == 0))
+	public void setAutoIngrement(boolean autoIngrement) {
+		if (autoIngrement == true) 
 			this.autoIngrement = autoIngrement;
 	}
 	
-	public int getPrimaryKey() {
+	public boolean getPrimaryKey() {
 		return primaryKey;
 	}
 
-	public void setPrimaryKey(int primaryKey) {
-		if ((primaryKey == 1) || (primaryKey == 0))
-		this.primaryKey = primaryKey;
+	public void setPrimaryKey(boolean primaryKey) {
+		if (primaryKey == true) 
+			this.primaryKey = primaryKey;
 	}
 
-	public int getNotNull() {
+	public boolean getNotNull() {
 		return notNull;
 	}
 
 
-	public void setNotNull(int notNull) {
-		if ((notNull == 1) || (notNull == 0))
+	public void setNotNull(boolean notNull) {
+		if (notNull == true) 
 			this.notNull = notNull;
 	}
 
-	// autoIngrement e notNull 1 true 0 false;
+	// autoIngrement, notNull, primaryKey true or false;
 	public String CriarScript() {
 		String script = getNome() + " " + getTipo() +"(" + getQuantidade() + ")";
-		if (getNotNull() == 1) {
+		if (getNotNull() == true) {
 			 script = script + " NOT NULL";
 		}else {
 
 		}
-		if (getAutoIngrement() == 1) {
+		if (getAutoIngrement() == true) {
 			script = script + " AUTO_INCREMENT";
-			if (getPrimaryKey() == 1) {
+			if (getPrimaryKey() == true) {
 				script = script + " PRIMARY KEY";
 			}
 		}else {

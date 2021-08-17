@@ -2,7 +2,6 @@
 import java.sql.Connection;
 
 import com.classes.AbstratTabela;
-import com.classes.Aluno;
 import com.classes.ConectarBD;
 import com.classes.ListAbstratTabela;
 import com.classes.ScriptBD;

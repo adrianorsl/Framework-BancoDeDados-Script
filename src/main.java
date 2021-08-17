@@ -14,11 +14,11 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ScriptBD scpt = new ScriptBD("codigo", Tipos.INT, 100, 1, 1, 1);
-		ScriptBD scpt2 = new ScriptBD("nome", Tipos.VARCHAR, 100, 0, 0, 1);
+		ScriptBD scpt = new ScriptBD("codigo", Tipos.INT, 100, true, true, true);
+		ScriptBD scpt2 = new ScriptBD("nome", Tipos.VARCHAR, 100, false, false, true);
 	
 		
-		Tabela tab = new Tabela("teste2");
+		Tabela tab = new Tabela("teste");
 		tab.addScript(scpt);
 		tab.addScript(scpt2);
 		System.out.println(tab.criarTabela());

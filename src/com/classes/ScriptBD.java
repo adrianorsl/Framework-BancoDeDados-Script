@@ -10,6 +10,8 @@ public class ScriptBD {
 	private int autoIngrement;
 	private int notNull;
 
+	
+	
 	public ScriptBD() {
 		
 	}
@@ -85,13 +87,13 @@ public class ScriptBD {
 
 		}
 		if (getAutoIngrement() == 1) {
-			script = script + " AUTO_INCREMENT";
+			script = script + " AUTO_INCREMENT PRIMARY KEY";
 		}else {
 			
 		}
 		return script;			
 	}
-
+	
 
 
 	@Override

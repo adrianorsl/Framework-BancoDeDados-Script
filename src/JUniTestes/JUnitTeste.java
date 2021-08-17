@@ -30,8 +30,7 @@ public class JUnitTeste  extends TestCase {
 		assertEquals("CREATE TABLE teste(\ncodigo INT(100) AUTO_INCREMENT PRIMARY KEY,\nnome VARCHAR(100) NOT NULL,\nendereço VARCHAR(100) NOT NULL,\nidade INT(3) NOT NULL,\n UNIQUE(codigo))ENGINE = innodb;", tab.criarTabela());
 	}
 	
-	public void teste3() {
-		
-	}
 
+	
+	
 }

@@ -9,5 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQLConnector"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="D:/Nova pasta/Faculdade/POO/Framework-BancoDeDados-Script/lib/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="D:/Nova pasta/Faculdade/POO/Framework-BancoDeDados-Script/lib/jdom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

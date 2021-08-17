@@ -10,6 +10,7 @@ public class ScriptBD {
 	private boolean autoIngrement;
 	private boolean primaryKey;
 	private boolean notNull;
+	private boolean unique;
 	
 
 	
@@ -18,13 +19,14 @@ public class ScriptBD {
 		
 	}
 
-	public ScriptBD(String nome, Tipos tipo, int quantidade, boolean autoIngrement,boolean primaryKey, boolean notNull) {
+	public ScriptBD(String nome, Tipos tipo, int quantidade, boolean autoIngrement,boolean primaryKey, boolean notNull, boolean unique) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.quantidade = quantidade;
 		this.autoIngrement = autoIngrement;
 		this.primaryKey = primaryKey;
 		this.notNull = notNull;
+		this.unique = unique;
 	}
 
 
@@ -88,6 +90,15 @@ public class ScriptBD {
 	public void setNotNull(boolean notNull) {
 		if (notNull == true) 
 			this.notNull = notNull;
+	}
+	
+
+	public boolean getUnique() {
+		return unique;
+	}
+
+	public void setUnique(boolean unique) {
+		this.unique = unique;
 	}
 
 	// autoIngrement, notNull, primaryKey true or false;

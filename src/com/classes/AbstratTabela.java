@@ -1,7 +1,11 @@
 package com.classes;
 
 import java.util.List;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *classe usada para fazer a gravação das tabelas
+ */
 public class AbstratTabela {
 
 	private String tabela;

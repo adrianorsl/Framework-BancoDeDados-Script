@@ -13,7 +13,11 @@ import com.classes.AbstratTabela;
 
 
 import Interface.Persistencia;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *Classe de gravação e leitura em CSV
+ */
 public class Csv implements Persistencia {
 
 		private final int POS_Tabela = 0;
@@ -31,7 +35,10 @@ public class Csv implements Persistencia {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
-
+		
+		/**Necessário criação da pasta arquivos
+		 * Metodo Booleano para gravar a lista das tabelas dentro da pasta arquivos
+		 */
 		public boolean gravar(List<AbstratTabela> lista)  throws IOException {
 			FileWriter writer = null;
 
@@ -55,7 +62,9 @@ public class Csv implements Persistencia {
 		}
 
 
-
+		/**Necessário criação da pasta arquivos
+		 * Metodo Booleano para ler a lista das tabelas gravadas dentro da pasta arquivos
+		 */
 		@Override
 		public List<AbstratTabela> ler(List<AbstratTabela> lista) throws IOException, ParseException {
 			BufferedReader reader = null;

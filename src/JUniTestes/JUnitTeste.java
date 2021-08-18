@@ -5,7 +5,11 @@ import com.classes.Tabela;
 
 import Enum.Tipos;
 import junit.framework.TestCase;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *
+ */
 public class JUnitTeste  extends TestCase {
 	
 	ScriptBD scptTeste = new ScriptBD("codigo", Tipos.INT, 100, true, true, false, true);

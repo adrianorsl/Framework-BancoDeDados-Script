@@ -2,7 +2,11 @@ package com.classes;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *
+ */
 public class Tabela {
 	
 	private String nomeTabela;
@@ -25,7 +29,10 @@ public class Tabela {
 	public Tabela() {
 		
 	}
-
+	/**
+	 * 
+	 * @param nomeTabela Nome da tabela que irá ser criada valoe em String
+	 */
 	public Tabela(String nomeTabela) {
 		this.nomeTabela = nomeTabela;
 	}
@@ -37,7 +44,10 @@ public class Tabela {
 	public void setNomeTabela(String nomeTabela) {
 		this.nomeTabela = nomeTabela;
 	}
-	
+	/**
+	 * Função String que gera cada linha da tabela
+	 * @return String do script
+	 */
 	
 	public String script() {
 		String st = "";
@@ -67,7 +77,10 @@ public class Tabela {
 		return st;
 	}
 	
-	
+	/**
+	 * Função de criação da tabela sem chaves estrangeiras 
+	 * @return  String com a tabela montada de acordo com padrões do MySQL
+	 */
 	public String criarTabela() {
 		String tabela = "CREATE TABLE "+  getNomeTabela() + "(" + "\n";
 		tabela +=  script();
@@ -84,6 +97,13 @@ public class Tabela {
 		
 	}
 	
+	/**
+	 * Função de criação da tabela com chaves estrangeiras 
+	 * @param foreignKey String da chave estrangeira
+	 * @param nomeTabela String do nome da tabela da chave estrangeira
+	 * @param referencia String da referencia da chave estrangeira
+	 * @return String com a tabela montada de acordo com padrões do MySQL
+	 */
 	public String criarTabelaForeignKey(String foreignKey, String nomeTabela, String referencia) {
 		String tabela = "CREATE TABLE "+  getNomeTabela() + "(" + "\n";
 		tabela += script();

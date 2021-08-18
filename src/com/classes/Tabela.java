@@ -31,7 +31,7 @@ public class Tabela {
 	}
 	/**
 	 * 
-	 * @param nomeTabela Nome da tabela que irá ser criada valoe em String
+	 * @param nomeTabela Nome da tabela que irá ser criada valor em String
 	 */
 	public Tabela(String nomeTabela) {
 		this.nomeTabela = nomeTabela;

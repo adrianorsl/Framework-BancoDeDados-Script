@@ -2,7 +2,11 @@ package com.classes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *
+ */
 public class ConectarBD {
 	
 	private String classForName;
@@ -15,7 +19,13 @@ public class ConectarBD {
 	public ConectarBD() {
 	
 	}
-	
+	/**
+	 * 
+	 * @param classForName 
+	 * @param url String do endereço do Banco de Dados
+	 * @param usuario String do nome de usuario do Banco de Dados
+	 * @param senha String da senha do Banco de Dados
+	 */
 	public ConectarBD(String classForName, String url, String usuario, String senha) {
 		this.classForName = classForName;
 		this.url = url;
@@ -49,7 +59,10 @@ public class ConectarBD {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+	/**
+	 * Metodo para conectar com o Banco de Dados
+	 * @return conexão do Banco de Dados
+	 */
 	public Connection conectar() {
 		try {
     		Class.forName(getClassForName());

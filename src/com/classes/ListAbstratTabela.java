@@ -2,7 +2,11 @@ package com.classes;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *
+ */
 public class ListAbstratTabela {
 	
 	List<AbstratTabela> lista = new ArrayList<AbstratTabela>();

@@ -14,7 +14,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import Interface.Persistencia;
-
+/**
+ * 
+ * @author adrianorslsc@hotmail.com
+ *Classe de gravação e leitura em Json
+ */
 public class Json implements Persistencia {
 	
 	private String nome;
@@ -31,8 +35,10 @@ public class Json implements Persistencia {
 		this.nome = nome;
 	}
 
-
-
+	
+	/**Necessário criação da pasta arquivos
+	 * Metodo Booleano para gravar a lista das tabelas dentro da pasta arquivos
+	 */
 	public boolean gravar(List<AbstratTabela> lista) {
 		GsonBuilder builder = new GsonBuilder();
 		Gson gson = builder.create();
@@ -49,7 +55,9 @@ public class Json implements Persistencia {
 		return true;
 	}
 	
-	
+	/**Necessário criação da pasta arquivos
+	 * Metodo Booleano para ler a lista das tabelas gravadas dentro da pasta arquivos
+	 */
 	public List<AbstratTabela> ler(List<AbstratTabela> tab) {
 		FileReader reader = null;
 

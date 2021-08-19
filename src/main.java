@@ -27,7 +27,7 @@ public class main {
 		ScriptBD scpt4 = new ScriptBD("idade", Tipos.INT, 3, false, false, true, false);
 	
 		
-		Tabela tab = new Tabela("teste");
+		Tabela tab = new Tabela("Cliente");
 		tab.addScript(scpt);
 		tab.addScript(scpt2);
 		tab.addScript(scpt3);
@@ -35,7 +35,7 @@ public class main {
 		
 		
 		
-		Tabela tab2 = new Tabela("teste2");
+		Tabela tab2 = new Tabela("Funcionario");
 		
 		ScriptBD scpt5 = new ScriptBD("codigoFuncionario", Tipos.INT, 100, false,false, false, false);
 		ScriptBD scpt6 = new ScriptBD("nomeFuncionario", Tipos.VARCHAR, 100, false, false, true, false);
@@ -49,7 +49,9 @@ public class main {
 		tab2.addScript(scpt8);
 		tab2.addScript(scpt9);
 		
+		System.out.println(tab.criarTabela() + "\n");
 		
+		System.out.println(tab2.criarTabelaForeignKey(scpt5.getNome(), tab.getNomeTabela(), scpt.getNome()));
 		
 		
 		AbstratTabela abstrat = new AbstratTabela();
@@ -62,7 +64,7 @@ public class main {
 		lista.add(abstrat);
 		
 		
-		abstrat2.setTabela(tab2.criarTabelaForeignKey(scpt5.getNome(), tab.getNomeTabela(), scpt.getNome()));
+		abstrat2.setTabela(tab2.criarTabela());
 		lista.add(abstrat2);
 		
 		Json a = new Json();
@@ -101,14 +103,17 @@ public class main {
 		
 		Connection conn = null;
 		PreparedStatement st = null;
+		PreparedStatement st2 = null;
 		
 		try {
 			conn = conexao.conectar();
 			
-			//st = conn.prepareStatement(tab.criarTabela());
-			//st = conn.prepareStatement(tab2.criarTabelaForeignKey(scpt6.getNome(), tab.getNomeTabela(), scpt2.getNome()));
+			st = conn.prepareStatement(tab.criarTabela());
+			st2 = conn.prepareStatement(tab2.criarTabelaForeignKey(scpt5.getNome(), tab.getNomeTabela(), scpt.getNome()));
+			
 			
 			int rowsAffected = st.executeUpdate();
+			rowsAffected = st2.executeUpdate();
 			
 			System.out.println("Done! Rows affected: " + rowsAffected);
 		}
